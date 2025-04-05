@@ -249,7 +249,7 @@ public class ItemView extends javax.swing.JFrame {
         itemTable.setModel(dtm);
 
         try {
-            ArrayList<ItemDto> itemDtos = itemController.getAll();
+            ArrayList<ItemDto> itemDtos = (ArrayList<ItemDto>) itemController.getAll();
             if (itemDtos != null) {
                 for (ItemDto itemDto : itemDtos) {
                     Object[] rowDate = {itemDto.getItemCode(), itemDto.getItemDesc(), itemDto.getPackSize(), itemDto.getUnitPrice(), itemDto.getQoh()};
@@ -273,6 +273,7 @@ public class ItemView extends javax.swing.JFrame {
         try {
             String resp = itemController.saveItem(itemDto);
             JOptionPane.showMessageDialog(this,resp);
+            loadTable();
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(this,e.getMessage());
@@ -290,6 +291,8 @@ public class ItemView extends javax.swing.JFrame {
         try{
             String resp = itemController.updateItem(itemDto);
             JOptionPane.showMessageDialog(this,resp);
+            loadTable();
+            clearForm();
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(this,e.getMessage());
@@ -325,6 +328,14 @@ public class ItemView extends javax.swing.JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this,e.getMessage());
         }
+    }
+
+    private void clearForm(){
+        txtItemCode.setText("");
+        txtItemDesc.setText("");
+        txtQty.setText("");
+        txtPackSize.setText("");
+        txtUnitPrice.setText("");
     }
 }
 

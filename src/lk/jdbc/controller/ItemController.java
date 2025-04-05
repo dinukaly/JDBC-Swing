@@ -1,31 +1,34 @@
 package lk.jdbc.controller;
 
 import lk.jdbc.dto.ItemDto;
+import lk.jdbc.model.ItemModel;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ItemController {
-    public String saveItem(ItemDto itemDto){
-        String resp = null;
+    private ItemModel itemModel = new ItemModel();
+    public String saveItem(ItemDto itemDto) throws SQLException, ClassNotFoundException {
+        String resp = itemModel.saveItem(itemDto);
         return resp;
     }
-    public String updateItem(ItemDto itemDto){
-        String resp = null;
-        return resp;
-    }
-
-    public String deleteItem (String code){
-        String resp = null;
+    public String updateItem(ItemDto itemDto) throws SQLException, ClassNotFoundException {
+        String resp = itemModel.updateItem(itemDto);
         return resp;
     }
 
-    public  ItemDto searchItem(String code){
-        ItemDto itemDto = null;
+    public String deleteItem (String code) throws SQLException, ClassNotFoundException {
+        String resp = itemModel.deleteItem(code);
+        return resp;
+    }
+
+    public  ItemDto searchItem(String code) throws SQLException, ClassNotFoundException {
+        ItemDto itemDto = itemModel.searchItem(code);
         return  itemDto;
     }
 
-    public ArrayList<ItemDto> getAll(){
-        ArrayList<ItemDto> itemDtos = null;
+    public ArrayList<ItemDto> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<ItemDto> itemDtos = itemModel.getAllItems() ;
         return itemDtos;
     }
 }
