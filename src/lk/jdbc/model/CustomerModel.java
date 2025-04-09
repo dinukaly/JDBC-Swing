@@ -4,10 +4,76 @@
  */
 package lk.jdbc.model;
 
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import lk.jdbc.db.DBConnection;
+import lk.jdbc.dto.CustomerDto;
+
 /**
  *
  * @author dinuka
  */
 public class CustomerModel {
-    
+
+    public String saveCustomer(CustomerDto customerDto) throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getInstance().getConnecttion();
+        String sql = ("INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)");
+
+        PreparedStatement preparedStatment = connection.prepareStatement(sql);
+        preparedStatment.setString(1, customerDto.getCusId());
+        preparedStatment.setString(2, customerDto.getCusTitle());
+        preparedStatment.setString(3, customerDto.getCusName());
+        preparedStatment.setString(4, customerDto.getDob());
+        preparedStatment.setDouble(5, customerDto.getSalary());
+        preparedStatment.setString(6, customerDto.getCusAddress());
+        preparedStatment.setString(7, customerDto.getCity());
+        preparedStatment.setString(8, customerDto.getProvince());
+        preparedStatment.setString(9, customerDto.getPostalCode());
+
+        return preparedStatment.executeUpdate() > 0 ? "Success" : "Fail";
+
+    }
+
+    public String updateCustomer(CustomerDto customerDto) {
+        return null;
+    }
+
+    public String deleteCustomer(String customerCode) {
+
+        return null;
+    }
+
+    public CustomerDto searchCustomer(String customerCode) {
+        return null;
+    }
+
+    public ArrayList<CustomerDto> getAllCustomers() throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getInstance().getConnecttion();
+        String sql = "SELECT * FROM customer";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        ArrayList<CustomerDto> dtos = new ArrayList<>();
+
+        ResultSet rst = preparedStatement.executeQuery();
+
+        while (rst.next()) {
+            dtos.add(new CustomerDto(
+                    rst.getString("CustID"),
+                    rst.getString("CustTitle"),
+                    rst.getString("CustName"),
+                    rst.getString("DOB"),
+                    rst.getDouble("salary"),
+                    rst.getString("CustAddress"),
+                    rst.getString("City"),
+                    rst.getString("Province"),
+                    rst.getString("PostalCode")
+            ));
+        }
+        return dtos;
+    }
+
 }
