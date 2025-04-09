@@ -1,0 +1,17 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package lk.jdbc.dto;
+
+/**
+ *
+ * @author dinuka
+ */
+public class CustomerDto {
+ private String cusId;
+ private String cusTitle;
+ private String dob;
+ private double salary;
+ private
+}

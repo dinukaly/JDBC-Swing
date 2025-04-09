@@ -22,7 +22,7 @@ public class ItemView extends javax.swing.JFrame {
      * Creates new form ItemView
      */
     public ItemView() {
-        itemController = new
+        itemController = new ItemController();
         initComponents();
         loadTable();
     }
@@ -249,7 +249,7 @@ public class ItemView extends javax.swing.JFrame {
         itemTable.setModel(dtm);
 
         try {
-            ArrayList<ItemDto> itemDtos = null;
+            ArrayList<ItemDto> itemDtos = itemController.getAll();
             if (itemDtos != null) {
                 for (ItemDto itemDto : itemDtos) {
                     Object[] rowDate = {itemDto.getItemCode(), itemDto.getItemDesc(), itemDto.getPackSize(), itemDto.getUnitPrice(), itemDto.getQoh()};
@@ -271,8 +271,9 @@ public class ItemView extends javax.swing.JFrame {
 
         );
         try {
-            String resp = null;
+            String resp = itemController.saveItem(itemDto);
             JOptionPane.showMessageDialog(this,resp);
+            loadTable();
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(this,e.getMessage());
@@ -288,8 +289,10 @@ public class ItemView extends javax.swing.JFrame {
                 Integer.parseInt(txtQty.getText())
         );
         try{
-            String resp = null;
+            String resp = itemController.updateItem(itemDto);
             JOptionPane.showMessageDialog(this,resp);
+            loadTable();
+            clearForm();
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(this,e.getMessage());
@@ -299,7 +302,7 @@ public class ItemView extends javax.swing.JFrame {
     private void deleteItem(){
         String itemCode = txtItemCode.getText();
         try{
-            String resp = null;
+            String resp = itemController.deleteItem(itemCode);
             JOptionPane.showMessageDialog(this,resp);
         }catch (Exception e){
             e.printStackTrace();
@@ -311,7 +314,7 @@ public class ItemView extends javax.swing.JFrame {
         String itemCode = (String) itemTable.getValueAt(itemTable.getSelectedRow(), 0);
 
         try{
-            ItemDto itemDto = null;
+            ItemDto itemDto = itemController.searchItem(itemCode);
           if (itemDto != null) {
               txtItemCode.setText(itemDto.getItemCode());
               txtItemDesc.setText(itemDto.getItemDesc());
@@ -325,6 +328,14 @@ public class ItemView extends javax.swing.JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this,e.getMessage());
         }
+    }
+
+    private void clearForm(){
+        txtItemCode.setText("");
+        txtItemDesc.setText("");
+        txtQty.setText("");
+        txtPackSize.setText("");
+        txtUnitPrice.setText("");
     }
 }
 
