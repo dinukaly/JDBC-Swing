@@ -1,5 +1,6 @@
 package lk.jdbc.controller;
 
+import java.sql.SQLException;
 import lk.jdbc.dto.CustomerDto;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class CustomerController {
     
     CustomerModel customerModel = new CustomerModel();
 
-    public String saveCustomer(CustomerDto customerDto){
+    public String saveCustomer(CustomerDto customerDto) throws Exception{
         String resp = customerModel.saveCustomer(customerDto);
         return resp;
     }
@@ -29,7 +30,7 @@ public class CustomerController {
         return  customerDto;
     }
 
-    public ArrayList<CustomerDto> getAll(){
+    public ArrayList<CustomerDto> getAll() throws SQLException, ClassNotFoundException{
         ArrayList<CustomerDto> customerDtos = customerModel.getAllCustomers();
         return customerDtos;
     }
