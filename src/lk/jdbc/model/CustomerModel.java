@@ -39,25 +39,32 @@ public class CustomerModel {
 
     public String updateCustomer(CustomerDto customerDto) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getInstance().getConnecttion();
-        String sql = "UPDATE customer SET CustID=?,CustTitle=?, CustName =?, DOB=?, salary=?, CustAddress=?,City=?,Province=?,PostalCode=?";
+        String sql = "UPDATE customer SET CustTitle=?, CustName =?, DOB=?, salary=?, CustAddress=?,City=?,Province=?,PostalCode=? WHERE CustID =?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setString(1, customerDto.getCusId());
-        preparedStatement.setString(2, customerDto.getCusTitle());
-        preparedStatement.setString(3, customerDto.getCusName());
-        preparedStatement.setString(4, customerDto.getDob());
+        
+        preparedStatement.setString(1, customerDto.getCusTitle());
+        preparedStatement.setString(2, customerDto.getCusName());
+        preparedStatement.setString(3, customerDto.getDob());
+        preparedStatement.setDouble(4, customerDto.getSalary());
         preparedStatement.setString(5, customerDto.getCusAddress());
         preparedStatement.setString(6, customerDto.getCity());
         preparedStatement.setString(7, customerDto.getProvince());
         preparedStatement.setString(8, customerDto.getPostalCode());
+        preparedStatement.setString(9, customerDto.getCusId());
 
         return preparedStatement.executeUpdate() > 0 ? "Success" : "Fail";
     }
 
-    public String deleteCustomer(String customerCode) {
-
-        return null;
+    public String deleteCustomer(String customerCode) throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getInstance().getConnecttion();
+        String sql = "DELETE FROM customer where CustID =?";
+        
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, customerCode);
+        
+        return preparedStatement.executeUpdate()>0? "Success": "Fail";
     }
 
     public CustomerDto searchCustomer(String customerCode) throws SQLException, ClassNotFoundException {
