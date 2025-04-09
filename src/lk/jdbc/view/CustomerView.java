@@ -337,6 +337,7 @@ public class CustomerView extends javax.swing.JFrame {
         try {
             String resp = customerController.updateCustomer(customerDto);
             JOptionPane.showMessageDialog(this, resp);
+            loadTable();
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -348,6 +349,7 @@ public class CustomerView extends javax.swing.JFrame {
         try {
             String resp = customerController.deleteCustomer(customerCode);
             JOptionPane.showMessageDialog(this, resp);
+            loadTable();
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, e.getMessage());
