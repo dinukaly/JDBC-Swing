@@ -4,6 +4,8 @@
  */
 package lk.jdbc.view;
 
+import java.awt.HeadlessException;
+import java.sql.SQLException;
 import lk.jdbc.controller.ItemController;
 import lk.jdbc.dto.ItemDto;
 
@@ -242,6 +244,7 @@ public class ItemView extends javax.swing.JFrame {
     private void loadTable() {
         String[] columns = {"Item Code", "Description", "Pack Size", "Unit Price", "Qty"};
         DefaultTableModel dtm = new DefaultTableModel(columns, 0) {
+            @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
@@ -252,8 +255,8 @@ public class ItemView extends javax.swing.JFrame {
             ArrayList<ItemDto> itemDtos = (ArrayList<ItemDto>) itemController.getAll();
             if (itemDtos != null) {
                 for (ItemDto itemDto : itemDtos) {
-                    Object[] rowDate = {itemDto.getItemCode(), itemDto.getItemDesc(), itemDto.getPackSize(), itemDto.getUnitPrice(), itemDto.getQoh()};
-                    dtm.addRow(rowDate);
+                    Object[] rowData = {itemDto.getItemCode(), itemDto.getItemDesc(), itemDto.getPackSize(), itemDto.getUnitPrice(), itemDto.getQoh()};
+                    dtm.addRow(rowData);
                 }
             }
         } catch (Exception e) {
@@ -274,8 +277,7 @@ public class ItemView extends javax.swing.JFrame {
             String resp = itemController.saveItem(itemDto);
             JOptionPane.showMessageDialog(this,resp);
             loadTable();
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (HeadlessException | ClassNotFoundException | SQLException e){
             JOptionPane.showMessageDialog(this,e.getMessage());
         }
     }
@@ -304,6 +306,7 @@ public class ItemView extends javax.swing.JFrame {
         try{
             String resp = itemController.deleteItem(itemCode);
             JOptionPane.showMessageDialog(this,resp);
+            loadTable();
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(this,e.getMessage());
