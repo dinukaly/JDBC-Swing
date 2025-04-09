@@ -8,6 +8,7 @@ import lk.jdbc.db.DBConnection;
 import lk.jdbc.view.ItemView;
 
 import java.sql.SQLException;
+import lk.jdbc.view.CustomerView;
 
 /**
  *
@@ -21,8 +22,8 @@ public class Main {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         // TODO code application logic here
 
-       // DBConnection.getInstance().getConnecttion();
         new ItemView().setVisible(true);
+       new CustomerView().setVisible(true);
     }
     
 }
