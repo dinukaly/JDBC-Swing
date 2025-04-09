@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class CustomerView extends javax.swing.JFrame {
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton btnDeleteCustomer;
     private javax.swing.JButton btnSaveCustomer;
     private javax.swing.JButton btnUpdateCustomer;
@@ -265,7 +265,7 @@ public class CustomerView extends javax.swing.JFrame {
         // TODO add your handling code here:
         searchCustomer();
     }//GEN-LAST:event_customerTableMouseClicked
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 
     private void loadTable() {
         String[] columnNames = {"CusId", "CusName", "CusTitle", "Address", "City", "Province", "PostalCode", "Dob", "Salary"};
@@ -291,6 +291,7 @@ public class CustomerView extends javax.swing.JFrame {
                             customerDto.getDob(),
                             customerDto.getSalary()
                     };
+                    dtm.addRow(rowData);
                 }
             }
         } catch (Exception e) {
