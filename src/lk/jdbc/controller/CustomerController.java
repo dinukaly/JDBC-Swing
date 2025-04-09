@@ -15,7 +15,7 @@ public class CustomerController {
         return resp;
     }
 
-    public String updateCustomer(CustomerDto customerDto){
+    public String updateCustomer(CustomerDto customerDto) throws SQLException, ClassNotFoundException{
         String resp = customerModel.updateCustomer(customerDto);
         return resp;
     }
@@ -25,7 +25,7 @@ public class CustomerController {
         return resp;
     }
 
-    public CustomerDto searchCustomer(String customerCode){
+    public CustomerDto searchCustomer(String customerCode) throws SQLException, ClassNotFoundException{
         CustomerDto customerDto = customerModel.searchCustomer(customerCode);
         return  customerDto;
     }
