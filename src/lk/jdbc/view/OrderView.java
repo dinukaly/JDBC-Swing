@@ -7,7 +7,9 @@ package lk.jdbc.view;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import lk.jdbc.controller.CustomerController;
+import lk.jdbc.controller.ItemController;
 import lk.jdbc.dto.CustomerDto;
+import lk.jdbc.dto.ItemDto;
 
 /**
  *
@@ -15,6 +17,7 @@ import lk.jdbc.dto.CustomerDto;
  */
 public class OrderView extends javax.swing.JFrame {
     private CustomerController customerController;
+    private ItemController itemController;
 
     /**
      * Creates new form OrderView
@@ -316,6 +319,20 @@ public class OrderView extends javax.swing.JFrame {
                 lblCustData.setText(dto.getCusName());
             } else {
                 lblCustData.setText("customer not fount");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    private void searchItem(){
+        try {
+            ItemDto itemdto = itemController.searchItem(txtItemCode.getText());
+            if (itemdto!=null) {
+                lblItemData.setText(itemdto.getItemDesc());
+            } else {
+                lblItemData.setText("Item not fount");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
