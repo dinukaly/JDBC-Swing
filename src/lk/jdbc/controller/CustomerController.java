@@ -20,7 +20,7 @@ public class CustomerController {
         return resp;
     }
 
-    public String deleteCustomer(String customerCode){
+    public String deleteCustomer(String customerCode) throws SQLException, ClassNotFoundException{
         String resp = customerModel.deleteCustomer(customerCode);
         return resp;
     }
