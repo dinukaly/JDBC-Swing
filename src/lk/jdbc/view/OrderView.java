@@ -4,20 +4,30 @@
  */
 package lk.jdbc.view;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import lk.jdbc.controller.CustomerController;
 import lk.jdbc.controller.ItemController;
+import lk.jdbc.controller.OrderController;
 import lk.jdbc.dto.CustomerDto;
 import lk.jdbc.dto.ItemDto;
+import lk.jdbc.dto.OrderDetailDto;
+import lk.jdbc.dto.OrderDto;
 
 /**
  *
  * @author dinuka
  */
 public class OrderView extends javax.swing.JFrame {
+
     private CustomerController customerController;
     private ItemController itemController;
+    private OrderController orderController;
+
+    private ArrayList<OrderDetailDto> orderDetailDtos = new ArrayList<>();
 
     /**
      * Creates new form OrderView
@@ -325,11 +335,11 @@ public class OrderView extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    private void searchItem(){
+
+    private void searchItem() {
         try {
             ItemDto itemdto = itemController.searchItem(txtItemCode.getText());
-            if (itemdto!=null) {
+            if (itemdto != null) {
                 lblItemData.setText(itemdto.getItemDesc());
             } else {
                 lblItemData.setText("Item not fount");
@@ -339,4 +349,49 @@ public class OrderView extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
+
+    private void addToTable() {
+        OrderDetailDto orderDetailDto = new OrderDetailDto(
+                null,
+                txtItemCode.getText(),
+                Integer.parseInt(txtQty.getText()),
+                Integer.parseInt(txtDiscount.getText())
+        );
+
+        orderDetailDtos.add(orderDetailDto);
+
+        DefaultTableModel dtm = (DefaultTableModel) orderTable.getModel();
+        Object[] rowData = {orderDetailDto.getItemCode(), orderDetailDto.getQty(), orderDetailDto.getDiscount()};
+
+        dtm.addRow(rowData);
+
+    }
+
+    private void placeOrder() {
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateString = sdf.format(date);
+
+        OrderDto orderDto = new OrderDto(
+                txtOrderId.getText(),
+                dateString,
+                txtCustId.getText()
+        );
+
+        try {
+            String resp = orderController.placeOrder(orderDto, orderDetailDtos);
+            JOptionPane.showMessageDialog(this, resp);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void clearItem() {
+        txtItemCode.setText("");
+        txtQty.setText("");
+        txtDiscount.setText("");
+        lblItemData.setText("");
+    }
+
 }
