@@ -4,6 +4,9 @@
  */
 package lk.jdbc.view;
 
+import javax.swing.table.DefaultTableModel;
+import lk.jdbc.dto.CustomerDto;
+
 /**
  *
  * @author dinuka
@@ -291,4 +294,15 @@ public class OrderView extends javax.swing.JFrame {
     private javax.swing.JLabel lblItemData;
     private javax.swing.JTable orderTable;
     // End of variables declaration//GEN-END:variables
+
+    private void loadTable() {
+        String[] columns = {"Item Code", "Item Qty", "Discount"};
+        DefaultTableModel dtm = new DefaultTableModel(columns, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        orderTable.setModel(dtm);
+
+    }
 }
