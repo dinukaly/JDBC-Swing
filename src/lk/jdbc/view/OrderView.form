@@ -35,15 +35,15 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtOrderId" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextField4" min="-2" pref="194" max="-2" attributes="0"/>
+                          <Component id="txtQty" min="-2" pref="194" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jTextField3" alignment="0" pref="194" max="32767" attributes="0"/>
-                              <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtItemCode" alignment="0" pref="194" max="32767" attributes="0"/>
+                              <Component id="txtCustId" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jTextField5" alignment="1" min="-2" pref="194" max="-2" attributes="0"/>
+                          <Component id="txtDiscount" alignment="1" min="-2" pref="194" max="-2" attributes="0"/>
                           <Component id="jButton3" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -91,28 +91,28 @@
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="txtOrderId" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="txtCustId" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton4" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="jTextField3" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="txtItemCode" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField4" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="txtQty" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField5" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="txtDiscount" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -180,13 +180,13 @@
         <Property name="text" type="java.lang.String" value="Item Qty"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtOrderId">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="txtCustId">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="txtItemCode">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="txtQty">
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -246,7 +246,7 @@
         <Property name="text" type="java.lang.String" value="Discount"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="txtDiscount">
     </Component>
     <Component class="javax.swing.JLabel" name="lblCustData">
       <Properties>
