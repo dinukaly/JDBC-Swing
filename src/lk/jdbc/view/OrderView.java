@@ -33,7 +33,11 @@ public class OrderView extends javax.swing.JFrame {
      * Creates new form OrderView
      */
     public OrderView() {
+        customerController = new CustomerController();
+        itemController = new ItemController();
+        orderController = new OrderController();
         initComponents();
+        loadTable();
     }
 
     /**
@@ -234,19 +238,23 @@ public class OrderView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchCustomer(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchCustomer
-        // TODO add your handling code here:
+        // TODO add your handling code here
+        searchCustomer();
     }//GEN-LAST:event_btnSearchCustomer
 
     private void btnAddtoCart(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoCart
         // TODO add your handling code here:
+        addToTable();
     }//GEN-LAST:event_btnAddtoCart
 
     private void btnSearchItem(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchItem
         // TODO add your handling code here:
+        searchItem();
     }//GEN-LAST:event_btnSearchItem
 
     private void btnPlaceOrder(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrder
         // TODO add your handling code here:
+        placeOrder();
     }//GEN-LAST:event_btnPlaceOrder
 
     private void orderTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderTableMouseClicked
