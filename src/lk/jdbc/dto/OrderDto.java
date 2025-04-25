@@ -9,7 +9,7 @@ package lk.jdbc.dto;
  * @author dinuka
  */
 public class OrderDto {
-    private String orderIt;
+    private String orderId;
     private String date;
     private String custId;
 
@@ -17,17 +17,17 @@ public class OrderDto {
     }
 
     public OrderDto(String orderIt, String date, String custId) {
-        this.orderIt = orderIt;
+        this.orderId = orderIt;
         this.date = date;
         this.custId = custId;
     }
 
-    public String getOrderIt() {
-        return orderIt;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setOrderIt(String orderIt) {
-        this.orderIt = orderIt;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public String getDate() {
@@ -48,7 +48,7 @@ public class OrderDto {
 
     @Override
     public String toString() {
-        return "OrderDto{" + "orderIt=" + orderIt + ", date=" + date + ", custId=" + custId + '}';
+        return "OrderDto{" + "orderIt=" + orderId + ", date=" + date + ", custId=" + custId + '}';
     }
     
 }

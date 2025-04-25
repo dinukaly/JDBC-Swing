@@ -20,7 +20,7 @@ import java.util.Collection;
  */
 public class ItemModel {
     public String saveItem (ItemDto itemDto) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "INSERT INTO item VALUES(?,?,?,?,?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -34,7 +34,7 @@ public class ItemModel {
     }
 
     public String updateItem (ItemDto itemDto) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "UPDATE item SET Description =?,PackSize =?, UnitPrice =?, QtyOnHand=? WHERE ItemCode =?" ;
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class ItemModel {
     }
 
     public String deleteItem(String code) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql= "DELETE FROM item WHERE itemCode =? ";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -59,7 +59,7 @@ public class ItemModel {
     }
 
     public ItemDto searchItem(String code) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM item WHERE ItemCode =?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -78,7 +78,7 @@ public class ItemModel {
     }
 
     public ArrayList<ItemDto> getAllItems() throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM item";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);

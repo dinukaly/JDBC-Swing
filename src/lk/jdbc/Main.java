@@ -9,6 +9,7 @@ import lk.jdbc.view.ItemView;
 
 import java.sql.SQLException;
 import lk.jdbc.view.CustomerView;
+import lk.jdbc.view.OrderView;
 
 /**
  *
@@ -24,6 +25,7 @@ public class Main {
 
         new ItemView().setVisible(true);
        new CustomerView().setVisible(true);
+       new OrderView().setVisible(true);
     }
     
 }

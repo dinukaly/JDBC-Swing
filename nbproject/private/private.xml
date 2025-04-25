@@ -3,15 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/dto/ItemDto.java</file>
-            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/dto/CustomerDto.java</file>
             <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/view/CustomerView.java</file>
             <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/model/ItemModel.java</file>
             <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/model/CustomerModel.java</file>
-            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/Main.java</file>
             <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/controller/CustomerController.java</file>
+            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/view/OrderView.java</file>
             <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/db/DBConnection.java</file>
             <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/controller/ItemController.java</file>
+            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/model/OrderModel.java</file>
+            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/controller/OrderController.java</file>
+            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/dto/ItemDto.java</file>
+            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/dto/CustomerDto.java</file>
+            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/Main.java</file>
+            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/dto/OrderDto.java</file>
+            <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/dto/OrderDetailDto.java</file>
             <file>file:/E:/GDSE%2073/MVC/mvc/src/lk/jdbc/view/ItemView.java</file>
         </group>
     </open-files>

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import lk.jdbc.model.CustomerModel;
 
 public class CustomerController {
-    
+  
     CustomerModel customerModel = new CustomerModel();
 
     public String saveCustomer(CustomerDto customerDto) throws Exception{

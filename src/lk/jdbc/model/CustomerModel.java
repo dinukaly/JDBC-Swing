@@ -19,7 +19,7 @@ import lk.jdbc.dto.CustomerDto;
 public class CustomerModel {
 
     public String saveCustomer(CustomerDto customerDto) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = ("INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)");
 
         PreparedStatement preparedStatment = connection.prepareStatement(sql);
@@ -38,7 +38,7 @@ public class CustomerModel {
     }
 
     public String updateCustomer(CustomerDto customerDto) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "UPDATE customer SET CustTitle=?, CustName =?, DOB=?, salary=?, CustAddress=?,City=?,Province=?,PostalCode=? WHERE CustID =?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -58,7 +58,7 @@ public class CustomerModel {
     }
 
     public String deleteCustomer(String customerCode) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "DELETE FROM customer where CustID =?";
         
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -68,7 +68,7 @@ public class CustomerModel {
     }
 
     public CustomerDto searchCustomer(String customerCode) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM customer where CustID =?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -92,7 +92,7 @@ public class CustomerModel {
     }
 
     public ArrayList<CustomerDto> getAllCustomers() throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnecttion();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM customer";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
